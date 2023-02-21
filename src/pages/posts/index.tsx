@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Link from "next/link";
 import React from "react";
 
-export const getServerSideProps = async ({ req, res }) => {
+export const getServerSideProps = async () => {
   const result = await fetch("https://dummyjson.com/products");
 
   // res.setHeader(
