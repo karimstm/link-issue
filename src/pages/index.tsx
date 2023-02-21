@@ -3,7 +3,11 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <div>
+    <div
+      style={{
+        textAlign: "center",
+      }}
+    >
       <h1> SEE ALL POSTS</h1>
       <Link href={"/posts"}>Posts Page</Link>
     </div>
