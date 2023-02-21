@@ -16,7 +16,7 @@ const Post = ({
 
 export const getServerSideProps = async (context: any) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
+    `https://dummyjson.com/products/${context.params.id}`
   );
   const post = await res.json();
   return {

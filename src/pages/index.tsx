@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <>
-      <h1>POSTS</h1>
+    <div>
+      <h1> SEE ALL POSTS</h1>
       <Link href={"/posts"}>Posts Page</Link>
-    </>
+    </div>
   );
 };
 
