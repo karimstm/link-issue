@@ -4,12 +4,18 @@ import Box from "@mui/material/Box";
 import Link from "next/link";
 import React from "react";
 
-export const getServerSideProps = async () => {
-  const res = await fetch("https://dummyjson.com/products");
-  let productsData = await res.json();
+export const getServerSideProps = async ({ req, res }) => {
+  const result = await fetch("https://dummyjson.com/products");
+
+  // res.setHeader(
+  //   "Cache-Control",
+  //   "no-cache, no-store, max-age=0, must-revalidate"
+  // );
+  let productsData = await result.json();
   return {
     props: {
       products: productsData.products,
+      env: process.env.NODE_ENV,
     },
   };
 };
