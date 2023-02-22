@@ -8,7 +8,7 @@ const Home = () => {
         textAlign: "center",
       }}
     >
-      <h1> SEE ALL PPRODUCTS -</h1>
+      <h1> SEE ALL PPRODUCTS</h1>
       <Link href={"/posts"}>Posts Page</Link>
     </div>
   );
