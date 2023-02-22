@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "../../styles/posts.module.css";
 import Image from "next/image";
+import { NextPageContext } from "next";
 
 const Post = ({ product, products }: any) => {
   return (
@@ -29,7 +30,7 @@ const Post = ({ product, products }: any) => {
   );
 };
 
-export const getServerSideProps = async (context: any) => {
+export const getServerSideProps = async (context: NextPageContext) => {
   const res = await fetch(
     `https://dummyjson.com/products/${context.params.id}`
   );
@@ -47,8 +48,7 @@ export const getServerSideProps = async (context: any) => {
   const product = await res.json();
 
   // remove cache-control header
-  context.res.headers.delete("cache-control");
-
+  context.res?.removeHeader("cache-control");
   return {
     props: {
       product,
