@@ -32,13 +32,12 @@ const Post = ({ product, products }: any) => {
 
 export const getServerSideProps = async (context: NextPageContext) => {
   const res = await fetch(
-    `https://dummyjson.com/products/${context.params.id}`
+    `https://dummyjson.com/products/${context.query?.id}`
   );
 
   const allProducts = await fetch("https://dummyjson.com/products");
   const allProductsJson = await allProducts.json();
 
-  console.log(res.ok, allProducts.ok);
   if (!res.ok || !allProducts.ok) {
     return {
       notFound: true,
