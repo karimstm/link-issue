@@ -45,6 +45,10 @@ export const getServerSideProps = async (context: any) => {
   }
 
   const product = await res.json();
+
+  // remove cache-control header
+  res.headers.delete("cache-control");
+
   return {
     props: {
       product,
