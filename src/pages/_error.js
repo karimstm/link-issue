@@ -10,6 +10,12 @@ const Error = ({ statusCode }) => {
 };
 
 Error.getInitialProps = ({ res, err }) => {
+  // check if this error happen due to build id mismatch
+  console.log("err", err);
+  if (err && err.code === "BUILD_ID_MISMATCH") {
+    // if so, reload the page
+    window.location.reload();
+  }
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
   return { statusCode };
 };
