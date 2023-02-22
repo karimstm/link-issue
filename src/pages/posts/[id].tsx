@@ -48,6 +48,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
 
   // remove cache-control header
   context.res?.removeHeader("cache-control");
+  console.log("header", context.res?.getHeaders());
   return {
     props: {
       product,
