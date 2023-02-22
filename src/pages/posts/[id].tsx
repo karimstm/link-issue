@@ -11,7 +11,7 @@ const Post = ({ product, products }: any) => {
           <li key={item.id}>
             <Link href={`/posts/${item.id}`}>{item.title}</Link>
           </li>
-        ))}
+        ))}{" "}
       </ul>
       <div className={styles.post}>
         <div>
@@ -36,6 +36,13 @@ export const getServerSideProps = async (context: any) => {
 
   const allProducts = await fetch("https://dummyjson.com/products");
   const allProductsJson = await allProducts.json();
+
+  console.log(res.ok, allProducts.ok);
+  if (!res.ok || !allProducts.ok) {
+    return {
+      notFound: true,
+    };
+  }
 
   const product = await res.json();
   return {
