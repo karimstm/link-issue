@@ -46,9 +46,8 @@ export const getServerSideProps = async (context: NextPageContext) => {
 
   const product = await res.json();
 
-  // remove cache-control header
-  context.res?.removeHeader("cache-control");
-  console.log("header", context.res?.getHeaders());
+  // disable cache
+  context.res?.setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate");
   return {
     props: {
       product,
