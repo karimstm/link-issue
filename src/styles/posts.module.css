@@ -1,0 +1,25 @@
+.post_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+}
+
+.post_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
